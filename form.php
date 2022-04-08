@@ -27,6 +27,15 @@ if (!empty($_POST)) {
 	$errors[] = "Неверные данные формы!";
 }
 
+if (empty($_POST["agree"])) {
+		$errors[] = "Согласитесь пожалуйста((";
+	}
+
+if (strpos($_POST["email"], "@") !== NULL)
+{
+$errors[] = "Леееее, норм почту вводи 0_о";
+}
+
 if (isset($errors)) {
 	foreach ($errors as $value) {
 		echo "$value<br>";
@@ -45,10 +54,9 @@ if (!isset($_POST["agree"])) {
 } else {
 	$agree = 1;
 }
-
 $serverName = 'localhost';
-$user = "u47660";
-$pass = "1741794";
+$user = "u47703";
+$pass = "7957362";
 $dbName = $user;
 
 $db = new PDO("mysql:host=$serverName;dbname=$dbName", $user, $pass, array(PDO::ATTR_PERSISTENT => true));
